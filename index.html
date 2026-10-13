@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Stire</title>
+    
+    <!-- Meta Open Graph pentru preview -->
+    <meta property="og:title" content="Stire de ultima ora" />
+    <meta property="og:description" content="Sentinta de 6 luni cu executare dupa ce a fost prins baut la volan" />
+    <meta property="og:image" content="https://i.imgur.com/30olwSC.jpeg" />
+    <meta property="og:type" content="website" />
+</head>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <h1>Proiect Școală - Afișare IP</h1>
+    <h2 id="ip-display">Se încarcă adresa IP...</h2>
+
+    <script>
+        // Preluare IP gratuită prin API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-display').innerText = "Adresa ta IP este: " + data.ip;
+            })
+            .catch(err => {
+                document.getElementById('ip-display').innerText = "Nu s-a putut detecta IP-ul.";
+            });
+    </script>
+</body>
+</html>
